@@ -12,7 +12,7 @@ interface GalleryYear {
 
 // Dynamically import all gallery images
 const galleryModules = import.meta.glob(
-	"/public/art/gallery/**/*.{png,jpg,jpeg,PNG,JPG,JPEG}",
+	"/art/gallery/**/*.{png,jpg,jpeg,PNG,JPG,JPEG}",
 	{ eager: true }
 );
 
