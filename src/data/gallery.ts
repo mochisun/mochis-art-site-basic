@@ -1,3 +1,4 @@
+
 interface GalleryImage {
 	year: number;
 	filename: string;
@@ -11,7 +12,7 @@ interface GalleryYear {
 
 // Dynamically import all gallery images
 const galleryModules = import.meta.glob(
-	"/src/assets/art/gallery/**/*.{png,jpg,jpeg,PNG,JPG,JPEG}",
+	"/public/art/gallery/**/*.{png,jpg,jpeg,PNG,JPG,JPEG}",
 	{ eager: true }
 );
 

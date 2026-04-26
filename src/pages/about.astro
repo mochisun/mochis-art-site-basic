@@ -6,7 +6,7 @@ import Layout from "../layouts/Layout.astro";
 	<div class="about-container">
 		<div>
 			<h1>About Me</h1>
-			<img src="/src/assets/decor/mochi_full_body.PNG" alt="Mochi Art Logo" width="400px" height="400px"/>
+			<img src="/src/assets/decor/mochi_full_body.PNG" alt="Mochi Art Avatar" class="art-avatar"/>
 		</div>
 		
 		<div class="about-content">
@@ -121,5 +121,21 @@ import Layout from "../layouts/Layout.astro";
 
 	.about-content a:hover {
 		color: #666;
+	}
+	.art-avatar {
+		display: block;
+		margin: 0 auto 2rem auto;
+		max-width: 70%;
+		height: auto;
+		object-fit: contain;
+	}
+
+	@media (max-width: 600px) {
+		.art-avatar{
+			display: none
+		}
+		.about-container{
+			display: block;
+		}
 	}
 </style>
