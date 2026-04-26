@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SocialLinks from "../components/SocialLinks.astro";
 ---
 
 <Layout title="Contact" currentPage="/contact">
@@ -33,9 +34,10 @@ import Layout from "../layouts/Layout.astro";
 		
 		<div class="contact-info">
 			<h2>Other Ways to Connect</h2>
+			<div class="socials"><SocialLinks  /></div>
 			<p>
 				You can also reach out through social media or email me directly at 
-				<a href="mailto:hello@mochiart.com">hello@mochiart.com</a>
+				<a href="mailto:xmochisun@gmail.com">xmochisun@gmail.com</a>
 			</p>
 		</div>
 	</div>
@@ -112,6 +114,13 @@ import Layout from "../layouts/Layout.astro";
 
 	.submit-btn:hover {
 		background-color: #333;
+	}
+
+	.socials {
+		justify-content: center;
+		display: flex;
+		gap: 1rem;
+		margin-top: 1rem;
 	}
 
 	.contact-info {

@@ -1,0 +1,38 @@
+---
+const socials = [
+  {
+    name: "Instagram",
+    url: "https://instagram.com/mochisun",
+    icon: "/icons/instagram.svg",
+  },
+  {
+    name: "YouTube",
+    url: "https://youtube.com/@mochisun1",
+    icon: "/icons/youtube.svg",
+  },
+];
+---
+
+<div class="social-links">
+  {socials.map((social) => (
+    <a href={social.url} target="_blank" rel="noopener noreferrer" aria-label={social.name}>
+      <img src={social.icon} alt={social.name} />
+    </a>
+  ))}
+</div>
+
+<style>
+  .social-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .social-links img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .social-links a:hover {
+    opacity: 0.7;
+  }
+</style>

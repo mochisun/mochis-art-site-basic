@@ -11,30 +11,45 @@ import Layout from "../layouts/Layout.astro";
 		
 		<div class="about-content">
 			<p>
-				Welcome to my artistic space. I'm a passionate artist dedicated to creating 
-				meaningful and visually striking artwork that explores themes of identity, nature, 
-				and human connection.
+				Heya, I'm Mochi! I love to create all sorts of artwork and I'm always trying to improve my skills :)
 			</p>
 			
 			<h2>My Artistic Journey</h2>
 			<p>
-				Through my work, I strive to capture moments of beauty and emotion. Each piece 
-				represents a unique exploration of color, form, and composition, blending technical 
-				skill with creative vision.
+				I have been doodling since I was a kid but started taking art seriously in 2014. Ever since then I have explored TONS of different styles and techniques, mediums, and subjects to enhance my art.
 			</p>
 			
-			<h2>What I Do</h2>
+			<h2>What I Like to Depict</h2>
 			<ul>
-				<li>Original artwork and commissioned pieces</li>
-				<li>Digital and traditional media</li>
-				<li>Portraiture and figurative work</li>
-				<li>Nature-inspired compositions</li>
+				<li>Original Characters</li>
+				<li>Random Doodles (I love practicing textures and linework)</li>
+				<li>Studies of Landscapes, Animals, and Portraits</li>
+				<li>Story-Driven Illustrations (rare haha)</li>
 			</ul>
-			
+
+			<h2>Tools of the Trade</h2>
+			<p>While I've worked with Acrylic and Oil paints in the past, I'm definitely a digital guy at heart. This is what I use to create:</p>
+			<div class="about-section">
+				<h4>I make art with:</h4>
+				<ul>
+					<li>Tablet: iPad mini 6</li>
+					<li>Utensil: Apple Pencil 2</li>
+					<li>App: Procreate</li>
+					<li>ibisPaint (for phone art. I draw with my fingers)</li>
+				</ul>
+
+				<h4>And I edit my Youtube videos with:</h4>
+				<ul>
+					<li>Main: DaVinci Resolve</li>
+					<li>Recording: OBS</li>
+					<li>PNGtuber Rigging: VeadoTube Mini</li>
+				</ul>
+			</div>
+
 			<h2>Get in Touch</h2>
 			<p>
 				Interested in commissioning a piece or learning more about my work? 
-				<a href="/contact">Contact me</a> to discuss your project.
+				<a href="/contact">Contact me</a> to discuss!
 			</p>
 		</div>
 	</div>
@@ -47,6 +62,12 @@ import Layout from "../layouts/Layout.astro";
 		margin-bottom: 2rem;
 	}
 
+	.about-section {
+		background-color: #ffffff8a;
+		padding: 1rem;
+		border-radius: 8px;
+	}
+
 	.about-container {
 		display: flex;
 		margin: 0 auto;
@@ -54,21 +75,20 @@ import Layout from "../layouts/Layout.astro";
 
 	.about-content {
 		line-height: 1.8;
-		background-color: #ffffffe3;
+		background-color: #ffffffd7;
 		padding: 2rem;
 		border-radius: 15px;
 
 	}
 
 	.about-content p {
-		margin-bottom: 1.5rem;
 		font-size: 1.05rem;
 		color: #444;
+		margin-bottom: 1.5rem;
 	}
 
 	.about-content h2 {
 		font-size: 1.5rem;
-		margin-top: 2rem;
 		margin-bottom: 1rem;
 		color: #000;
 	}
@@ -76,7 +96,6 @@ import Layout from "../layouts/Layout.astro";
 	.about-content ul {
 		list-style: none;
 		padding-left: 0;
-		margin-bottom: 1.5rem;
 	}
 
 	.about-content li {
@@ -88,7 +107,7 @@ import Layout from "../layouts/Layout.astro";
 	.about-content li::before {
 		content: "→";
 		position: absolute;
-		left: 0;
+		left: 0.5%;
 		color: #000;
 		font-weight: bold;
 	}
