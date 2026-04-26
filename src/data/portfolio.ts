@@ -29,7 +29,7 @@ export const portfolioItems: PortfolioItem[] = [
 		category: "digital",
 		description: "A special christmas gift for my lovely partner who loves the Mob Psycho 100 show and the Binding of Isaac game. I designed this piece to be printed on a shirt and a sticker (See images below)",
 		finalImage: "/art/portfolio/digital_art/mob_isaac/mob_isaac_art.PNG",
-        thumbnail: "/art/portfolio/digital_art/mob_isaac/thumbnail.png",
+        thumbnail: "/art/portfolio/digital_art/mob_isaac/thumbnail.PNG",
 		progressPhotos: [
 			"/art/portfolio/digital_art/mob_isaac/shirt_design.png",
 			"/art/portfolio/digital_art/mob_isaac/water_bottle_sticker.png",

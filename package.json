@@ -6,8 +6,9 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "gen:gallery": "node scripts/generate-gallery.mjs",
+    "dev": "npm run gen:gallery && astro dev",
+    "build": "npm run gen:gallery && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
