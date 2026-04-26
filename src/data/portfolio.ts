@@ -11,6 +11,32 @@ export interface PortfolioItem {
 
 export const portfolioItems: PortfolioItem[] = [
 	{
+		id: "will_wizard",
+		title: "Portrait of Will Byers from Stranger Things | 2026 (Digital Illustration)",
+		category: "digital",
+		description: "Follow my methodical process of creating a digital portrait using multiple references from Season 5 of Stranger Things!",
+		finalImage: "/src/assets/art/portfolio/digital_art/will_wizard/will wizard.PNG",
+        thumbnail: "/src/assets/art/portfolio/digital_art/will_wizard/thumbnail.PNG",
+		progressPhotos: [
+			"/src/assets/art/portfolio/digital_art/will_wizard/IMG_2231.PNG",
+			"/src/assets/art/portfolio/digital_art/will_wizard/will wizard.PNG",
+		],
+		timelapse: "https://www.youtube.com/embed/qpJmWCbBnzg",
+	},
+    {
+		id: "mob-isaac",
+		title: "Mob Pyscho/Binding of Isaac Design | 2025 (Digital Illustration)",
+		category: "digital",
+		description: "A special christmas gift for my lovely partner who loves the Mob Psycho 100 show and the Binding of Isaac game. I designed this piece to be printed on a shirt and a sticker (See images below)",
+		finalImage: "/src/assets/art/portfolio/digital_art/mob_isaac/mob_isaac_art.PNG",
+        thumbnail: "/src/assets/art/portfolio/digital_art/mob_isaac/thumbnail.png",
+		progressPhotos: [
+			"/src/assets/art/portfolio/digital_art/mob_isaac/shirt_design.png",
+			"/src/assets/art/portfolio/digital_art/mob_isaac/water_bottle_sticker.png",
+		],
+		timelapse: "/src/assets/art/portfolio/digital_art/mob_isaac/mob_isaac_timelapse.mp4",
+	},
+    {
 		id: "salmon",
 		title: "Salmon Farming Commentary | 2024 (Oil Paint on Canvas)",
 		category: "traditional",
@@ -60,19 +86,7 @@ export const portfolioItems: PortfolioItem[] = [
 			"/src/assets/art/portfolio/traditional_art/self_portrait/20221212_173308 square up.jpg",
 		],
 	},
-	{
-		id: "mob-isaac",
-		title: "Mob Pyscho/Binding of Isaac Design | 2025 (Digital Illustration)",
-		category: "digital",
-		description: "A special christmas gift for my lovely partner who loves the Mob Psycho 100 show and the Binding of Isaac game. I designed this piece to be printed on a shirt and a sticker (See images below)",
-		finalImage: "/src/assets//art/portfolio/digital_art/mob_isaac/mob_isaac_art.PNG",
-        thumbnail: "/src/assets/art/portfolio/digital_art/mob_isaac/thumbnail.png",
-		progressPhotos: [
-			"/src/assets/art/portfolio/digital_art/mob_isaac/shirt_design.png",
-			"/src/assets/art/portfolio/digital_art/mob_isaac/water_bottle_sticker.png",
-		],
-		timelapse: "/src/assets/art/portfolio/digital_art/mob_isaac/mob_isaac_timelapse.mp4",
-	},
+	
 ];
 
 export function getPortfolioItem(id: string): PortfolioItem | undefined {

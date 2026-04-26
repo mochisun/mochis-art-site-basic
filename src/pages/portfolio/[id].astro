@@ -47,14 +47,27 @@ export function getStaticPaths() {
 
 		<!-- Timelapse Video (if available) -->
 		{item.timelapse && (
-			<div class="timelapse-section">
-				<h2>Timelapse Video</h2>
-				<video controls>
-					<source src={item.timelapse} type="video/mp4" />
-					Your browser does not support the video tag.
-				</video>
-			</div>
-		)}
+            <div class="timelapse-section">
+                <h2>Timelapse Video</h2>
+
+                {item.timelapse.includes("youtube.com") ? (
+                    <iframe
+                        width="100%"
+                        height="400"
+                        src={item.timelapse.replace("watch?v=", "embed/")}
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                ) : (
+                    <video controls width="100%">
+                        <source src={item.timelapse} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                )}
+
+            </div>
+        )}
 
 	</div>
 </Layout>
