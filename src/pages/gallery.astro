@@ -5,7 +5,7 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Gallery" currentPage="/gallery">
 	<h1>Gallery</h1>
 	<p class="subtitle">Browse all of my artwork</p>
-	
+
 	<div class="gallery-grid">
 		<div class="gallery-item">
 			<div class="placeholder">
@@ -52,6 +52,36 @@ import Layout from "../layouts/Layout.astro";
 		color: #666;
 		margin-bottom: 3rem;
 		font-size: 1.1rem;
+	}
+
+	.categories-bar {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		margin-bottom: 3rem;
+		flex-wrap: wrap;
+	}
+
+	.category-btn {
+		padding: 0.75rem 1.5rem;
+		border: 2px solid #ddd;
+		background-color: #fff;
+		border-radius: 25px;
+		cursor: pointer;
+		font-size: 0.95rem;
+		transition: all 0.3s ease;
+		color: #333;
+	}
+
+	.category-btn:hover {
+		border-color: #999;
+		background-color: #f5f5f5;
+	}
+
+	.category-btn.active {
+		background-color: #333;
+		color: #fff;
+		border-color: #333;
 	}
 
 	.gallery-grid {

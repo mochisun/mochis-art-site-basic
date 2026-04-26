@@ -3,9 +3,12 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="About" currentPage="/about">
-	<h1>About Me</h1>
-	
 	<div class="about-container">
+		<div>
+			<h1>About Me</h1>
+			<img src="/src/assets/decor/mochi_full_body.PNG" alt="Mochi Art Logo" width="400px" height="400px"/>
+		</div>
+		
 		<div class="about-content">
 			<p>
 				Welcome to my artistic space. I'm a passionate artist dedicated to creating 
@@ -45,12 +48,16 @@ import Layout from "../layouts/Layout.astro";
 	}
 
 	.about-container {
-		max-width: 700px;
+		display: flex;
 		margin: 0 auto;
 	}
 
 	.about-content {
 		line-height: 1.8;
+		background-color: #ffffffe3;
+		padding: 2rem;
+		border-radius: 15px;
+
 	}
 
 	.about-content p {

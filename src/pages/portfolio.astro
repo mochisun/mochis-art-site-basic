@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { portfolioItems } from "../data/portfolio";
 ---
 
 <Layout title="Portfolio" currentPage="/portfolio">
@@ -13,33 +14,14 @@ import Layout from "../layouts/Layout.astro";
 	</div>
 	
 	<div class="portfolio-grid" id="portfolio-grid">
-		<div class="portfolio-item" data-category="traditional">
-			<div class="placeholder">
-				<img src="/art/portfolio/traditional_art/self_portrait/20221212_173308 square up.jpg" alt="Self Portrait" />
-			</div>
-			<h3>Self Portrait</h3>
-		</div>
-		
-		<div class="portfolio-item" data-category="traditional">
-			<div class="placeholder">
-				<img src="/art/portfolio/traditional_art/salmon/20240228_104826.jpg" alt="Salmon" />
-			</div>
-			<h3>Salmon</h3>
-		</div>
-		
-		<div class="portfolio-item" data-category="traditional">
-			<div class="placeholder">
-				<img src="/art/portfolio/traditional_art/friend_portrait/20230404_130806.jpg" alt="Friend Portrait" />
-			</div>
-			<h3>Friend Portrait</h3>
-		</div>
-
-		<div class="portfolio-item" data-category="digital">
-			<div class="placeholder">
-				<img src="/art/portfolio/digital_art/mob_isaac/mob_isaac_art.PNG" alt="Mob Isaac" />
-			</div>
-			<h3>Mob Isaac</h3>
-		</div>
+		{portfolioItems.map((item) => (
+			<a href={`/portfolio/${item.id}`} class="portfolio-item" data-category={item.category} data-id={item.id}>
+				<div class="placeholder">
+					<img src={item.thumbnail} alt={item.title} />
+				</div>
+				<h4>{item.title}</h4>
+			</a>
+		))}
 	</div>
 </Layout>
 
@@ -68,7 +50,7 @@ import Layout from "../layouts/Layout.astro";
 	.category-btn {
 		padding: 0.75rem 1.5rem;
 		border: 2px solid #ddd;
-		background-color: #fff;
+		background-color: #ffffffde;
 		border-radius: 25px;
 		cursor: pointer;
 		font-size: 0.95rem;
@@ -82,7 +64,7 @@ import Layout from "../layouts/Layout.astro";
 	}
 
 	.category-btn.active {
-		background-color: #333;
+		background-color: #333333b9;
 		color: #fff;
 		border-color: #333;
 	}
@@ -90,13 +72,20 @@ import Layout from "../layouts/Layout.astro";
 	.portfolio-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 2rem;
+		gap: 1rem;
 		margin-top: 2rem;
 	}
 
 	.portfolio-item {
 		text-align: center;
 		transition: transform 0.3s ease, opacity 0.3s ease;
+		background-color: #ffffff80;
+		padding: 1rem;
+		border-radius: 15px;
+		text-decoration: none;
+		color: inherit;
+		display: block;
+		cursor: pointer;
 	}
 
 	.portfolio-item.hidden {
