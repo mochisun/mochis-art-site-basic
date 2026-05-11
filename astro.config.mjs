@@ -5,6 +5,11 @@ import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
+  vite: {
+    server: {
+      allowedHosts: ['.ngrok-free.dev']
+    }
+  },
   devToolbar: {
     enabled: false,
   },
