@@ -1,51 +1,100 @@
+//Description: This script scans the public/art/gallery directory for images organized by year, generates a 
+// TypeScript file with structured data about the images, and exports functions to retrieve this data.
+// It ensures that the gallery data is always up-to-date with the contents of the gallery directory.
+
 import fs from "fs";
+import fsp from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
+import sharp from "sharp";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const galleryDir = path.join(__dirname, "../public/art/gallery");
+const thumbDir = path.join(galleryDir, "thumbs");
 const outputFile = path.join(__dirname, "../src/data/gallery.ts");
-
-// Get all image files organized by year
-const imagesByYear = {};
 const supportedFormats = [".png", ".jpg", ".jpeg", ".PNG", ".JPG", ".JPEG"];
+const thumbSize = 400;
 
-// Scan all year directories
-const yearDirs = fs.readdirSync(galleryDir).filter((file) => {
-	return fs.statSync(path.join(galleryDir, file)).isDirectory();
-});
+function isImageFile(filename) {
+	return supportedFormats.includes(path.extname(filename));
+}
 
-yearDirs.forEach((year) => {
-	const yearPath = path.join(galleryDir, year);
-	const files = fs.readdirSync(yearPath);
+function getThumbnailFilename(filename) {
+	return `${path.parse(filename).name}.webp`;
+}
 
-	const images = files.filter((file) => {
-		const ext = path.extname(file);
-		return supportedFormats.includes(ext);
-	});
+function getThumbPath(year, filename) {
+	return `/art/gallery/thumbs/${year}/${getThumbnailFilename(filename)}`;
+}
 
-	if (images.length > 0) {
-		imagesByYear[year] = images.sort();
+async function ensureDir(dir) {
+	await fsp.mkdir(dir, { recursive: true });
+}
+
+async function generateThumbnails(year, images) {
+	const outputYearDir = path.join(thumbDir, String(year));
+	await ensureDir(outputYearDir);
+
+	for (const filename of images) {
+		const sourceFile = path.join(galleryDir, String(year), filename);
+		const outputFilePath = path.join(outputYearDir, getThumbnailFilename(filename));
+
+		try {
+			await sharp(sourceFile)
+				.resize(thumbSize, thumbSize, { fit: "cover" })
+				.webp({ quality: 75 })
+				.toFile(outputFilePath);
+		} catch (error) {
+			console.error(`Failed to generate thumbnail for ${sourceFile}:`, error);
+		}
 	}
-});
+}
 
-// Generate TypeScript file
-const imageEntries = [];
-Object.entries(imagesByYear)
-	.sort((a, b) => a[0] - b[0])
-	.forEach(([year, images]) => {
-		imageEntries.push(`	// ${year}`);
-		images.forEach((filename) => {
-			imageEntries.push(
-				`	{ year: ${year}, filename: "${filename}", imagePath: "/art/gallery/${year}/${filename}" },`
-			);
+function scanGallery() {
+	const imagesByYear = {};
+	const yearDirents = fs.readdirSync(galleryDir, { withFileTypes: true });
+	const yearDirs = yearDirents
+		.filter((dirent) => dirent.isDirectory() && dirent.name.toLowerCase() !== "thumbs")
+		.map((dirent) => dirent.name)
+		.sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+
+	for (const year of yearDirs) {
+		const yearPath = path.join(galleryDir, year);
+		const files = fs.readdirSync(yearPath);
+		const images = files.filter((file) => supportedFormats.includes(path.extname(file))).sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+
+		if (images.length > 0) {
+			imagesByYear[year] = images;
+		}
+	}
+
+	return imagesByYear;
+}
+
+async function buildGallery() {
+	const imagesByYear = scanGallery();
+
+	for (const [year, images] of Object.entries(imagesByYear)) {
+		await generateThumbnails(year, images);
+	}
+
+	const imageEntries = [];
+	Object.entries(imagesByYear)
+		.sort((a, b) => Number(a[0]) - Number(b[0]))
+		.forEach(([year, images]) => {
+			imageEntries.push(`	// ${year}`);
+			images.forEach((filename) => {
+				imageEntries.push(
+					` 	{ year: ${year}, filename: "${filename}", imagePath: "/art/gallery/${year}/${filename}", thumbPath: "${getThumbPath(year, filename)}" },`
+				);
+			});
 		});
-	});
 
-const fileContent = `interface GalleryImage {
+	const fileContent = `interface GalleryImage {
 	year: number;
 	filename: string;
 	imagePath: string;
+	thumbPath: string;
 }
 
 interface GalleryYear {
@@ -61,7 +110,6 @@ ${imageEntries.join("\n")}
 export function getGalleryData(): GalleryYear[] {
 	const imagesByYear: Map<number, GalleryImage[]> = new Map();
 
-	// Organize images by year
 	for (const image of galleryImages) {
 		if (!imagesByYear.has(image.year)) {
 			imagesByYear.set(image.year, []);
@@ -69,7 +117,6 @@ export function getGalleryData(): GalleryYear[] {
 		imagesByYear.get(image.year)?.push(image);
 	}
 
-	// Convert to sorted array (newest first)
 	return Array.from(imagesByYear.entries())
 		.sort(([yearA], [yearB]) => yearB - yearA)
 		.map(([year, images]) => ({
@@ -90,6 +137,8 @@ export function getImagesByYear(year: number): GalleryImage[] {
 }
 `;
 
-// Write the file
-fs.writeFileSync(outputFile, fileContent, "utf-8");
-console.log(`✓ Generated gallery.ts with ${imageEntries.length / 2} images`);
+	await fsp.writeFile(outputFile, fileContent, "utf-8");
+	console.log(`✓ Generated gallery.ts with ${Object.values(imagesByYear).flat().length} images`);
+}
+
+await buildGallery();

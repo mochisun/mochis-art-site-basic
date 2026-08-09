@@ -1,3 +1,5 @@
+/*
+
 export interface PortfolioItem {
 	id: string;
 	title: string;
@@ -96,3 +98,5 @@ export function getPortfolioItem(id: string): PortfolioItem | undefined {
 export function getPortfolioItemsByCategory(category: "traditional" | "digital"): PortfolioItem[] {
 	return portfolioItems.filter((item) => item.category === category);
 }
+
+*/

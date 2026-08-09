@@ -5,13 +5,8 @@ import SocialLinks from "../components/SocialLinks.astro";
 
 <Layout title="Contact" currentPage="/contact">
 	<h1>Get in Touch</h1>
-	<p class="subtitle">I'd love to hear from you. Let's connect!</p>
-	
-	
-
 	<div class="contact-container">
 		
-
 		<form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
 			<input type="hidden" name="access_key" value="187bfd30-a1a0-4d51-a64d-ed76fb8dc130">
 
@@ -34,14 +29,12 @@ import SocialLinks from "../components/SocialLinks.astro";
 
 			<button type="submit" class="submit-btn">Send Message</button>
 		</form>
-
 		
 		<div class="contact-info">
 			<h2>Other Ways to Connect</h2>
 			<div class="socials"><SocialLinks  /></div>
 			<p>
-				You can also reach out through social media or email me directly at 
-				<a href="mailto:xmochisun@gmail.com">xmochisun@gmail.com</a>
+				Always feel free to reach out to me over social media!
 			</p>
 		</div>
 	</div>
@@ -51,14 +44,7 @@ import SocialLinks from "../components/SocialLinks.astro";
 	h1 {
 		text-align: center;
 		font-size: 2.5rem;
-		margin-bottom: 0.5rem;
-	}
-
-	.subtitle {
-		text-align: center;
-		color: #666;
-		margin-bottom: 3rem;
-		font-size: 1.1rem;
+		margin-bottom: 2rem;
 	}
 
 	.contact-container {
