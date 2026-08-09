@@ -39,6 +39,24 @@ async function generateThumbnails(year, images) {
 		const sourceFile = path.join(galleryDir, String(year), filename);
 		const outputFilePath = path.join(outputYearDir, getThumbnailFilename(filename));
 
+		let skip = false;
+		try {
+			const [sourceStat, outputStat] = await Promise.all([
+				fsp.stat(sourceFile),
+				fsp.stat(outputFilePath).catch(() => null),
+			]);
+
+			if (outputStat && outputStat.mtimeMs >= sourceStat.mtimeMs) {
+				skip = true;
+			}
+		} catch (error) {
+			console.error(`Error checking file timestamps for ${filename}:`, error);
+		}
+
+		if (skip) {
+			continue;
+		}
+
 		try {
 			await sharp(sourceFile)
 				.resize(thumbSize, thumbSize, { fit: "cover" })

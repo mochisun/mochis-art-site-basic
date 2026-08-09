@@ -6,7 +6,9 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Home" currentPage="/">
 	<div class="hero">
 		<img src="/avatar/mochi_pfp.PNG" alt="Mochi Art Logo" class="logo" />
-		<p>Welcome to my self-coded Art Website! You can find me on any of the socials below or checkout the gallery to see high resolution images of my art :)</p>
+		<div class="welcome-paragraph">
+			<p>Welcome to my self-coded Art Website! You can find me on any of the socials below or checkout the gallery to see high resolution images of my art :)</p>
+		</div>
 		<div class="hero-buttons">
  			<!-- <a href="/portfolio" class="button button-primary">View Portfolio</a> -->
 			<a href="/gallery" class="button button-secondary">Browse Gallery</a>
@@ -32,6 +34,13 @@ import Layout from "../layouts/Layout.astro";
 		font-size: 1.25rem;
 		color: #666;
 		margin-bottom: 2rem;
+	}
+
+	.welcome-paragraph {
+		line-height: 1.8;
+		background-color: #ffffffd7;
+		padding: 2rem;
+		border-radius: 15px;
 	}
 
 	.hero-buttons {
