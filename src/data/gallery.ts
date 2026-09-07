@@ -120,9 +120,11 @@ const galleryImages: GalleryImage[] = [
  	{ year: 2026, filename: "birb pin.PNG", imagePath: "/art/gallery/2026/birb pin.PNG", thumbPath: "/art/gallery/thumbs/2026/birb pin.webp" },
  	{ year: 2026, filename: "califer raztira attack.jpg", imagePath: "/art/gallery/2026/califer raztira attack.jpg", thumbPath: "/art/gallery/thumbs/2026/califer raztira attack.webp" },
  	{ year: 2026, filename: "charlotte attack.PNG", imagePath: "/art/gallery/2026/charlotte attack.PNG", thumbPath: "/art/gallery/thumbs/2026/charlotte attack.webp" },
+ 	{ year: 2026, filename: "chinese lantern.PNG", imagePath: "/art/gallery/2026/chinese lantern.PNG", thumbPath: "/art/gallery/thumbs/2026/chinese lantern.webp" },
  	{ year: 2026, filename: "coco attack.PNG", imagePath: "/art/gallery/2026/coco attack.PNG", thumbPath: "/art/gallery/thumbs/2026/coco attack.webp" },
  	{ year: 2026, filename: "face1.PNG", imagePath: "/art/gallery/2026/face1.PNG", thumbPath: "/art/gallery/thumbs/2026/face1.webp" },
  	{ year: 2026, filename: "face2.PNG", imagePath: "/art/gallery/2026/face2.PNG", thumbPath: "/art/gallery/thumbs/2026/face2.webp" },
+ 	{ year: 2026, filename: "face3.PNG", imagePath: "/art/gallery/2026/face3.PNG", thumbPath: "/art/gallery/thumbs/2026/face3.webp" },
  	{ year: 2026, filename: "joost mintgull attack.jpg", imagePath: "/art/gallery/2026/joost mintgull attack.jpg", thumbPath: "/art/gallery/thumbs/2026/joost mintgull attack.webp" },
  	{ year: 2026, filename: "land1.JPEG", imagePath: "/art/gallery/2026/land1.JPEG", thumbPath: "/art/gallery/thumbs/2026/land1.webp" },
  	{ year: 2026, filename: "land2.PNG", imagePath: "/art/gallery/2026/land2.PNG", thumbPath: "/art/gallery/thumbs/2026/land2.webp" },
@@ -134,8 +136,14 @@ const galleryImages: GalleryImage[] = [
  	{ year: 2026, filename: "mermay3.PNG", imagePath: "/art/gallery/2026/mermay3.PNG", thumbPath: "/art/gallery/thumbs/2026/mermay3.webp" },
  	{ year: 2026, filename: "mermay7.PNG", imagePath: "/art/gallery/2026/mermay7.PNG", thumbPath: "/art/gallery/thumbs/2026/mermay7.webp" },
  	{ year: 2026, filename: "mermay9.PNG", imagePath: "/art/gallery/2026/mermay9.PNG", thumbPath: "/art/gallery/thumbs/2026/mermay9.webp" },
+ 	{ year: 2026, filename: "mista guido.PNG", imagePath: "/art/gallery/2026/mista guido.PNG", thumbPath: "/art/gallery/thumbs/2026/mista guido.webp" },
+ 	{ year: 2026, filename: "periwinkle.PNG", imagePath: "/art/gallery/2026/periwinkle.PNG", thumbPath: "/art/gallery/thumbs/2026/periwinkle.webp" },
+ 	{ year: 2026, filename: "puffin.PNG", imagePath: "/art/gallery/2026/puffin.PNG", thumbPath: "/art/gallery/thumbs/2026/puffin.webp" },
+ 	{ year: 2026, filename: "rick space.PNG", imagePath: "/art/gallery/2026/rick space.PNG", thumbPath: "/art/gallery/thumbs/2026/rick space.webp" },
  	{ year: 2026, filename: "roux mosshruum attack.JPEG", imagePath: "/art/gallery/2026/roux mosshruum attack.JPEG", thumbPath: "/art/gallery/thumbs/2026/roux mosshruum attack.webp" },
  	{ year: 2026, filename: "snake study.JPEG", imagePath: "/art/gallery/2026/snake study.JPEG", thumbPath: "/art/gallery/thumbs/2026/snake study.webp" },
+ 	{ year: 2026, filename: "squid egg.PNG", imagePath: "/art/gallery/2026/squid egg.PNG", thumbPath: "/art/gallery/thumbs/2026/squid egg.webp" },
+ 	{ year: 2026, filename: "wharf.PNG", imagePath: "/art/gallery/2026/wharf.PNG", thumbPath: "/art/gallery/thumbs/2026/wharf.webp" },
 ];
 
 export function getGalleryData(): GalleryYear[] {
